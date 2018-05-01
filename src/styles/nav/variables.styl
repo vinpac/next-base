@@ -1,0 +1,39 @@
+$nav-link-padding-y = .5rem
+$nav-link-padding-x = 1rem
+$nav-link-disabled-color = $text-muted
+
+$nav-tabs-border-color = #ddd
+$nav-tabs-border-width = 1px
+$nav-tabs-border-radius = $border-radius
+$nav-tabs-link-hover-border-color = #e9ecef
+$nav-tabs-link-active-color = #495057
+$nav-tabs-link-active-bg = #fff
+$nav-tabs-link-active-border-color = #ddd
+
+$navbar-padding-y =($spacer / 2)
+$navbar-padding-x =$spacer
+
+$navbar-brand-font-size =$font-size-large
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height = $navbar-brand-font-size * $line-height-base
+$navbar-brand-height = ($font-size-base * $line-height-base + $nav-link-padding-y * 2)
+$navbar-brand-padding-y =($navbar-brand-height - $nav-link-height) / 2
+
+$navbar-toggler-padding-y = .25rem
+$navbar-toggler-padding-x = .75rem
+$navbar-toggler-font-size = $font-size-large
+$navbar-toggler-border-radius = $btn-border-radius
+
+$navbar-dark-color = rgba(#fff,.7)
+$navbar-dark-hover-color = rgba(#fff,.85)
+$navbar-dark-active-color = rgba(#fff,1)
+$navbar-dark-disabled-color = rgba(#fff,.3)
+$navbar-dark-toggler-icon-bg = str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
+$navbar-dark-toggler-border-color = rgba(#fff,.1)
+
+$navbar-light-color = rgba(#000,.65)
+$navbar-light-hover-color = rgba(#000,.85)
+$navbar-light-active-color = rgba(#000,.9)
+$navbar-light-disabled-color = rgba(#000,.3)
+$navbar-light-toggler-icon-bg = str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
+$navbar-light-toggler-border-color = rgba(#000,.1)

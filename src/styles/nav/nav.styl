@@ -1,0 +1,21 @@
+.nav--vertical
+  .nav__item
+    display: block
+
+  &.nav--dividers
+    .nav__item
+      border-left-width: 0
+      border-bottom: 1px solid #ccc
+
+    .nav__item:last-child
+      border-top-width: 0
+
+.nav__item
+  padding: .345rem .45rem
+
+// Themes
+.nav--theme-dark.nav--dividers .nav__item
+  border-color: rgba(#fff, .1)
+
+.navbar
+  display: flex

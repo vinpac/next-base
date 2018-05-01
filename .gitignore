@@ -1,0 +1,9 @@
+dist
+.next
+src/.next
+node_modules
+yarn-error.log
+npm-error.log
+tmp
+STATIC_DIRNAME
+public/d

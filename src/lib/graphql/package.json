@@ -1,0 +1,4 @@
+{
+  "main": "graphql.server.js",
+  "browser": "graphql.client.js"
+}

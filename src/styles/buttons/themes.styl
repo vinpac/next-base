@@ -1,0 +1,57 @@
+.btn--theme-default
+  button-variant(#f9f9f9, $text-base, #ddd)
+  background-image: linear-gradient(0deg, rgba(#000, .02), rgba(#000, .008))
+
+.btn--theme-primary
+  button-variant($color-primary)
+
+.btn--theme-accent,
+.btn-accent
+  button-variant($color-accent)
+
+.btn--theme-facebook
+  button-variant(#3b5998)
+
+.btn--theme-success
+  button-variant($color-success)
+
+.btn--theme-error
+  button-variant($color-error)
+
+
+// Outline
+.btn--outline-white
+  button-outline-variant(#fff)
+
+.btn-outline-primary,
+.btn--outline-primary
+  button-outline-variant($color-primary)
+
+.btn--outline-accent
+  button-outline-variant($color-accent)
+
+// Text
+.btn--inline
+  padding: 0
+
+  &:hover
+    background: none !important
+
+
+.btn--text-base
+  button-text-variant($text-base)
+
+.btn--text-white
+  button-text-variant(#fff)
+
+.btn--text-muted-dark
+  button-text-variant($text-muted-dark)
+
+.btn--text-primary
+  button-text-variant($color-primary)
+
+.btn--text-accent
+  button-text-variant($color-accent)
+
+.btn--text-error
+  button-text-variant($color-error)

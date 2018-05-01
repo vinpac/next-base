@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    "transform-es2015-modules-commonjs",
+    ["module-resolver", {
+      "alias": {
+        "Server": "./src/server"
+      }
+    }]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": { "node": "6" },
+        "modules": false,
+        "useBuiltIns": false,
+        "debug": false
+      }
+    ],
+    "@babel/preset-stage-2",
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ]
+}

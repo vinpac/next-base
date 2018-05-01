@@ -1,0 +1,122 @@
+.fs-tiny
+  font-size: 12px
+
+.font--size-small,
+.fs-small
+  font-size: $font-size-small
+
+.font--size-medium,
+.fs-medium
+  font-size: $font-size-medium
+
+.font--size-large,
+.fs-large
+  font-size: $font-size-large
+
+.ta-center
+  text-align: center
+
+text-variant('.tc-base', $text-base)
+text-variant('.tc-link', $link-color)
+text-variant('.tc-light', rgba(white, 0.8))
+text-variant('.text-primary', $color-primary)
+text-variant('.tc-primary', $color-primary)
+text-variant('.tc-accent', $color-accent)
+text-variant('.tc-accent-light', lighten($color-accent, 30%))
+text-variant('.tc-info', $color-info)
+text-variant('.tc-error', $color-error)
+text-variant('.tc-success', $color-success)
+text-variant('.tc-white', white)
+text-variant('.text--muted', $text-muted)
+text-variant('.text--muted-dark', $text-muted-dark)
+
+// Alignment
+.text--justify
+  text-align: justify !important
+
+.text--nowrap
+  white-space: nowrap !important
+
+.text--truncate
+  text-truncate()
+
+.text--left
+  text-align: left !important
+
+.text--center
+  text-align: center !important
+
+.text--right
+  text-align: right !important
+
++media-breakpoint-up(md)
+  .text--md-left
+    text-align: left !important
+
+  .text--md-right
+    text-align: right !important
+
+// Transformation ---------------
+.text--lowercase
+  text-transform: lowercase !important
+
+.text--uppercase
+  text-transform: uppercase !important
+
+.text--capitalize
+  text-transform: capitalize !important
+
+// Weight and italics ----------
+.fw-light
+  font-weight: $font-weight-light !important
+
+.fw-normal
+  font-weight: $font-weight-normal !important
+
+.fw-semibold
+  font-weight: $font-weight-semibold !important
+
+.fw-bold
+  font-weight: $font-weight-bold !important
+
+.font--italic
+  font-style: italic !important
+
+.text--line-height
+  line-height: 1.5
+
+// Display -------------------
+.display-4
+  font-size: 4.5rem
+  font-weight: $display-default-weight
+  line-height: $display-line-height
+
+.display-5
+  font-size: 3rem
+  font-weight: $display-default-weight
+  line-height: $display-line-height
+
+
+.post
+  h1, h2, h3
+    color: $color-primary
+    text-transform: uppercase
+    font-weight: bold
+
+  h1
+    margin-bottom: 25px
+
+  h2
+    margin-bottom: 15px
+
+  p
+    margin-bottom: 40px
+    font-size: 20px
+    line-height: 32px
+
+  .video
+    margin: 40px 0
+
+.text-uppercase
+  text-transform: uppercase
+
