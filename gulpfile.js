@@ -39,10 +39,10 @@ const compileCSS = () =>
         autoprefixer({ browses: ['last 2 versions'] }),
       ]),
     )
-    .pipe(gulp.dest(`./public/d/${buildId}/`))
+    .pipe(gulp.dest(`./public/_dist/${buildId}/`))
 
 gulp.task('css', ['css/clean', 'write-static-dirname'], compileCSS)
-gulp.task('css/clean', () => gulp.src('./public/d', { read: false }).pipe(clean()))
+gulp.task('css/clean', () => gulp.src('./public/_dist', { read: false }).pipe(clean()))
 gulp.task('css/compile', compileCSS)
 gulp.task('css/watch', ['css/compile', 'write-static-dirname'], () =>
   gulp.watch('./src/styles/**/*.styl', ['css/compile']),

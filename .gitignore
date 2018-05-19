@@ -6,4 +6,4 @@ yarn-error.log
 npm-error.log
 tmp
 STATIC_DIRNAME
-public/d
+public/_dist

@@ -17,11 +17,14 @@ const runServer = () => {
   server.use(bodyParser.json())
 
   // Serve public
-  server.use(
-    express.static(path.resolve('public/d'), {
-      maxage: 31104000000, // 6 months
-    }),
-  )
+  if (!dev) {
+    server.use(
+      '/_dist',
+      express.static(path.resolve('public/_dist'), {
+        maxage: 31104000000, // 6 months
+      }),
+    )
+  }
   server.use(express.static(path.resolve('public')))
 
   if (useNext) {

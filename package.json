@@ -58,7 +58,7 @@
   },
   "scripts": {
     "dev": "nodemon -q -w src/server --exec \"npm run compile:server && node dist/index.js\"",
-    "dev:css": "rimraf public/d && gulp css/watch",
+    "dev:css": "rimraf public/_dist && gulp css/watch",
     "dev:client": "node dist/index.js",
     "dev:server": "DISABLE_NEXT=true nodemon -q -w src/server --exec \"npm run compile:server && node dist/index.js\"",
     "start": "NODE_ENV=production node dist/index.js",
