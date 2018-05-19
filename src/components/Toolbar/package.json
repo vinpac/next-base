@@ -1,0 +1,5 @@
+{
+  "name": "toolbar",
+  "private": true,
+  "main": "./Toolbar.js"
+}

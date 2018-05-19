@@ -3,7 +3,9 @@
     "transform-es2015-modules-commonjs",
     ["module-resolver", {
       "alias": {
-        "Server": "./src/server"
+        "Server": "./src/server",
+        "Lib": "./src/lib",
+        "Core": "./src/server/core"
       }
     }]
   ],

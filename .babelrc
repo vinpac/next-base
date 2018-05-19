@@ -1,6 +1,6 @@
 {
   "presets": [
     "next/babel",
-    "flow"
+    "@babel/preset-flow"
   ]
 }

@@ -1,6 +1,6 @@
 const path = require('path')
 
-const resolve = dir => path.resolve(__dirname, 'src', dir)
+const resolve = (...args) => path.resolve('./src', ...args)
 module.exports = {
   parser: 'babel-eslint',
 
@@ -87,7 +87,7 @@ module.exports = {
             alias: {
               Components: resolve('components'),
               Styles: resolve('styles'),
-              Core: resolve('core'),
+              Core: resolve('server', 'core'),
               Lib: resolve('lib'),
               Server: resolve('server'),
             },

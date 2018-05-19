@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import thunk from 'redux-thunk'
-import { dev } from 'Server/constants'
+import { dev } from 'Core/constants'
 import createLogger from './_logger'
 import rootReducer from './reducers'
 

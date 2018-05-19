@@ -1,10 +1,8 @@
 import express from 'express'
-import expressGraphQL from 'express-graphql'
 import next from 'next'
 import path from 'path'
 import bodyParser from 'body-parser'
-import schema from './graphql'
-import { dev } from './constants'
+import { dev } from 'Core/constants'
 
 const port = process.env.PORT || 3000
 const useNext = !process.env.DISABLE_NEXT
@@ -18,17 +16,7 @@ const runServer = () => {
   server.use(bodyParser.urlencoded({ extended: true }))
   server.use(bodyParser.json())
 
-  server.use(
-    '/graphql',
-    expressGraphQL(req => ({
-      schema,
-      graphiql: dev,
-      context: {
-        req,
-      },
-      pretty: dev,
-    })),
-  )
+  // Serve public
   server.use(express.static(path.resolve('public')))
 
   if (useNext) {

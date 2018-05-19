@@ -7,5 +7,5 @@ export default (app, server) => {
   }
 
   page('/home', '/')
-  page('/post', '/post/:slug')
+  page('/about', '/about')
 }

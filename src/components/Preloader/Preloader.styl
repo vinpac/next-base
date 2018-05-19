@@ -1,0 +1,61 @@
+@import '~Styles/variables'
+
+$default-size = 12px
+$duration = 700ms
+
+preloader-size($size)
+  height: $size
+  width: ($size * 3 + $size / 2)
+
+  .item
+    width: $size
+    height: $size
+    margin-left: ($size / 4)
+
+// Sizes
+.component
+  preloader-size($default-size)
+
+.size-small
+  preloader-size($default-size * 0.6)
+
+.size-medium
+  preloader-size($default-size * 1.5)
+
+.size-large
+  preloader-size($default-size * 3)
+
+.component
+  display: inline-block
+  line-height: 0
+
+.item
+  background: $text-muted-dark
+  display: inline-block
+  border-radius: 50%
+
+  &:first-child
+    margin-left: 0
+
+.item1
+  animation: pulse $duration ease-in-out 0s infinite normal
+
+.item2
+  animation: pulse $duration ease-in-out ($duration / 3) infinite normal
+
+.item3
+  animation: pulse $duration ease-in-out ($duration / 1.5) infinite normal
+
+@keyframes pulse
+  0%
+    opacity: 1
+    transform: scale(1)
+
+  80%
+    transform: scale(.9)
+    opacity: .5
+
+  100%
+    transform: scale(.9)
+    opacity: .5
+

@@ -8,12 +8,24 @@ const postcssFlexbugsFixes = require('postcss-flexbugs-fixes')
 const postcssFilters = require('postcss-filters')
 const postcssSelectorNot = require('postcss-selector-not')
 
-const buildId = String(Date.now())
 const prod = process.env.NODE_ENV === 'production'
+let buildId
+
+if (!prod) {
+  try {
+    buildId = fs.readFileSync('./STATIC_DIRNAME')
+  } catch (error) {
+    // ...
+  }
+}
+
+if (!buildId) {
+  buildId = String(Date.now())
+}
 
 const compileCSS = () =>
   gulp
-    .src('./src/styles/index.styl')
+    .src('./src/styles/global/_index.styl')
     .pipe(
       stylus({
         compress: prod,
@@ -33,7 +45,7 @@ gulp.task('css', ['css/clean', 'write-static-dirname'], compileCSS)
 gulp.task('css/clean', () => gulp.src('./public/d', { read: false }).pipe(clean()))
 gulp.task('css/compile', compileCSS)
 gulp.task('css/watch', ['css/compile', 'write-static-dirname'], () =>
-  gulp.watch('./src/styles/*', ['css/compile']),
+  gulp.watch('./src/styles/**/*.styl', ['css/compile']),
 )
 
 gulp.task('write-static-dirname', callback => fs.writeFile('STATIC_DIRNAME', buildId, callback))

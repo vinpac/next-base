@@ -5,7 +5,7 @@ const postcssFlexbugsFixes = require('postcss-flexbugs-fixes')
 const postcssFilters = require('postcss-filters')
 const postcssSelectorNot = require('postcss-selector-not')
 
-const resolve = dir => path.resolve('./src', dir)
+const resolve = (...args) => path.resolve('./src', ...args)
 let staticDistDirname
 
 try {
@@ -22,9 +22,11 @@ module.exports = {
   webpack(config, { isServer, dev }) {
     Object.assign(config.resolve, {
       alias: Object.assign({}, config.resolve.alias, {
+        Core: resolve('server', 'core'),
         Lib: resolve('lib'),
         Components: resolve('components'),
         Server: resolve('server'),
+        Styles: resolve('styles'),
       }),
     })
 

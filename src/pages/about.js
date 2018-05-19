@@ -1,23 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import withRedux from '../lib/redux'
-import Link from 'next/link'
+import Meta from 'Components/Meta'
+import Toolbar from 'Components/Toolbar'
 
-const about = ({ user }) => (
+const AboutPage = ({ className }) => (
   <div>
-    <Link href="/">
-      <a href="">Home</a>
-    </Link>
-    {user ? user.name : 'NO'}
+    <Toolbar />
+    <Meta title="Sobre" />
+    <div className="container next-toolbar">
+      <div className="ratio mb-4 mt-3">
+        <div className="ratio-fill" style={{ paddingTop: '50%' }} />
+        <div className="ratio-body rounded bg-primary p-5 tc-white ta-center">
+          <h1 className="display-1">Home</h1>
+        </div>
+      </div>
+      <div className="card">
+        <div className="p-2 card-item" />
+        <div className="p-2 card-item" />
+      </div>
+    </div>
   </div>
 )
 
-about.displayName = 'about'
-about.propTypes = {
+AboutPage.displayName = 'AboutPage'
+AboutPage.propTypes = {
   className: PropTypes.string,
 }
-about.defaultProps = {
+AboutPage.defaultProps = {
   className: undefined,
 }
 
-export default withRedux(state => ({ user: state.user }))(about)
+export default AboutPage
