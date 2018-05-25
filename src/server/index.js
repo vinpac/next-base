@@ -21,7 +21,8 @@ const runServer = () => {
     server.use(
       '/_dist',
       express.static(path.resolve('public/_dist'), {
-        maxage: 31104000000, // 6 months
+        maxage: 31536000000,
+        immutable: true,
       }),
     )
   }

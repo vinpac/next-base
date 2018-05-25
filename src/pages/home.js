@@ -13,7 +13,7 @@ const Home = ({ count }) => (
     <Meta title="Nome" />
     <Toolbar />
     <div className={`${s.banner} ta-center`}>
-      <h1 className="heading-1 tw-light tc-white">Home is here</h1>
+      <h1 className="heading-1 tw-light tc-white">Home is here 4</h1>
       <p className="ts-large tc-light ">Lorem ipsum dolor iset</p>
       <Link href="/about" as="/about2">
         <a className="btn btn-primary">About</a>
@@ -153,7 +153,7 @@ const Home = ({ count }) => (
             <Icon name="caret-down" />
           </button>
         </div>
-        <button className="btn btn--size-small btn-primary btn--strong ml-2 tw-normal">
+        <button className="btn btn--size-small btn-outline-primary ml-2 tw-normal">
           Inscrever-se para um teste gratuito
         </button>
         <button
