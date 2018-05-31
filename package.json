@@ -36,6 +36,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "expect": "^23.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
     "gulp-postcss": "^7.0.1",
@@ -57,8 +58,8 @@
     "dev:server": "DISABLE_NEXT=true nodemon -q -w src/server --exec \"npm run compile:server && node dist/index.js\"",
     "start": "NODE_ENV=production node dist/index.js",
     "build": "NODE_ENV=production gulp && npm run compile:server && next build src",
-    "test": "$(npm bin)/mocha --require @babel/register",
-    "test:watch": "$(npm bin)/mocha --watch --require @babel/register",
+    "test": "NODE_ENV=test $(npm bin)/mocha --require @babel/register",
+    "test:watch": "NODE_ENV=test $(npm bin)/mocha --watch --require @babel/register",
     "compile:css": "gulp css",
     "compile:server": "rm -rf dist && $(npm bin)/babel --no-babelrc --config-file=./.babelrc.server.json src/server -d dist"
   }

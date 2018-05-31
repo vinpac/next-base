@@ -69,6 +69,7 @@ function intToHex(int) {
   const hex = int.toString(16)
   return hex.length === 1 ? `0${hex}` : hex
 }
+
 export function rgbToHex(r, g, b) {
   return `#${intToHex(r)}${intToHex(g)}${intToHex(b)}`
 }
@@ -107,7 +108,57 @@ export function hexToHsl(hex) {
   return rgbToHsl(rgb[0], rgb[1], rgb[2])
 }
 
-export const shade = (hex, p = 0) => {
-  const hsl = hexToHsl(hex)
-  return hslToHex(hsl[0], hsl[1], hsl[2] + p)
+export function parseSymbol(symbol) {
+  if (symbol.trim().startsWith('#')) {
+    return {
+      type: 'hex',
+      value: symbol,
+    }
+  }
+
+  const arr = []
+  let type = ''
+  let inScope = false
+  let i = 0
+  let n = 0
+  for (; i < symbol.length; i += 1) {
+    const code = symbol.charCodeAt(i)
+    if (code === 40) {
+      inScope = true
+    } else if (code === 41) {
+      break
+    } else if (code !== 32 && code !== 10 && code !== 9) {
+      if (inScope) {
+        if (code === 44) {
+          arr.push('')
+          n += 1
+        } else if (n === arr.length) {
+          arr.push(symbol[i])
+        } else {
+          arr[n] += symbol[i]
+        }
+      } else {
+        type += symbol[i]
+      }
+    }
+  }
+
+  return {
+    type,
+    value: arr.map(parseFloat),
+  }
+}
+
+export const shade = (symbol, p = 0) => {
+  const node = parseSymbol(symbol)
+  let hsl
+  if (node.type === 'hex') {
+    hsl = hexToHsl(node.value)
+  } else if (node.type === 'rgb' || node.type === 'rgba') {
+    hsl = rgbToHsl(node.value[0], node.value[1], node.value[2])
+  } else if (node.type === 'hsl') {
+    hsl = node.value
+  }
+
+  return hslToHex(hsl[0], hsl[1], Math.max(0, Math.min(100, hsl[2] + p)))
 }

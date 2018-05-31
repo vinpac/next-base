@@ -1,6 +1,19 @@
 {
-  "presets": [
-    "next/babel",
-    "@babel/preset-flow"
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        "next/babel",
+        "@babel/preset-flow"
+      ]
+    },
+    "production": {
+      "presets": [
+        "next/babel",
+        "@babel/preset-flow"
+      ]
+    },
+    "test": {
+      "extends": "./.babelrc.server.json"
+    }
+  }
 }
