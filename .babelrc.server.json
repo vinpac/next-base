@@ -4,6 +4,7 @@
     ["module-resolver", {
       "alias": {
         "Server": "./src/server",
+        "Ducks": "./src/ducks",
         "Lib": "./src/lib",
         "Core": "./src/server/core"
       }

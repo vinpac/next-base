@@ -11,7 +11,6 @@ export default class extends Document {
     return (
       <html lang="en">
         <Head>
-          <style id={STYLE_ID}>{getRenderedCSS()}</style>
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
           <link rel="stylesheet" href={`/_dist/${staticDistDirname}/_index.css`} />
@@ -23,6 +22,8 @@ export default class extends Document {
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
             rel="stylesheet"
           />
+          {/* eslint-disable-next-line */}
+          <style id={STYLE_ID} dangerouslySetInnerHTML={{ __html: getRenderedCSS() }} />
         </Head>
         <body>
           <Main />

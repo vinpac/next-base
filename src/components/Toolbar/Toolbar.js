@@ -1,19 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
-import Collapse from 'Components/Collapse'
+import Collapse, { CollapseWrapper } from 'Components/Collapse'
 import NavLink from 'Components/NavLink'
+import Icon from 'Components/Icon'
 import Style from 'next-styled-css'
 import s, { sheet } from './Toolbar.styl'
 
+const backgrounds = ['#F0CF61', '#ff6139', '#f86fa0', '#3a7eff', '#8c66db', '#3f4a5d']
 class Toolbar extends React.Component {
   state = { collapsed: true }
-
   toggleCollapse = () => this.setState({ collapsed: !this.state.collapsed })
 
   render() {
+    const { onThemeChange } = this.props
     const { collapsed } = this.state
+
     return (
-      <div className={`${s.toolbar} bg-accent tc-white`}>
+      <div className={`${s.toolbar} tc-white`}>
         <Style sheet={sheet} />
         <div className="navbar navbar-dark navbar-expand-md px-0">
           <div className="container flex-nowrap">
@@ -32,9 +35,7 @@ class Toolbar extends React.Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink href="/blog" className="nav-link" activeClassName="active">
-                  Blog
-                </NavLink>
+                <button className="btn-plain nav-link">Personalizar</button>
               </li>
             </ul>
             <form action="" className={`form-inline ml-0 ml-md-4 mr-2 flex-grow ${s.searchForm}`}>
@@ -77,9 +78,33 @@ class Toolbar extends React.Component {
           <div className="px-3 py-2">
             <hr className="my-0 w-100" />
           </div>
-          <a href="" className="nav-link tc-base">
-            Perfil
-          </a>
+          <CollapseWrapper>
+            <CollapseWrapper.Context.Consumer>
+              {({ collapsed: collapsed2, toggle }) => (
+                <React.Fragment>
+                  <button onClick={toggle} className="btn-plain nav-link tc-base ta-left">
+                    Personalizar
+                    <Icon
+                      name={collapsed2 ? 'angle-down' : 'angle-up'}
+                      className="ts-large float-right"
+                    />
+                  </button>
+                  <Collapse collapsed={collapsed2} className="collapseable">
+                    <div className="p-2 bg-grey">
+                      {backgrounds.map(bg => (
+                        <button
+                          key={bg}
+                          className={`btn-plain ${s.circleButton}`}
+                          style={{ backgroundColor: bg }}
+                          onClick={() => onThemeChange({ colorPrimary: bg })}
+                        />
+                      ))}
+                    </div>
+                  </Collapse>
+                </React.Fragment>
+              )}
+            </CollapseWrapper.Context.Consumer>
+          </CollapseWrapper>
           <a href="" className="nav-link tc-base">
             Viagens
           </a>

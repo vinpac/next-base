@@ -3,11 +3,15 @@ import PropTypes from 'prop-types'
 
 class Collapse extends React.Component {
   static propTypes = {
-    className: PropTypes.string,
+    collapsed: PropTypes.bool,
+    children: PropTypes.node,
+    containerClassName: PropTypes.string,
   }
 
   static defaultProps = {
-    className: undefined,
+    containerClassName: undefined,
+    collapsed: false,
+    children: null,
   }
 
   state = {

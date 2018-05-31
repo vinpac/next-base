@@ -11,20 +11,20 @@ export function fetch(rawURL, options) {
       options.headers = options.headers || {}
       options.headers['Content-Type'] = 'application/json'
     }
-  }
 
-  if (options.query) {
-    const markIndex = url.indexOf('?')
-    let strinfiedQuery = queryString.stringify(options.query)
+    if (options.query) {
+      const markIndex = url.indexOf('?')
+      let strinfiedQuery = queryString.stringify(options.query)
 
-    if (markIndex === -1) {
-      url += `?${strinfiedQuery}`
-    } else {
-      if (markIndex !== url.length - 1) {
-        strinfiedQuery += '&'
+      if (markIndex === -1) {
+        url += `?${strinfiedQuery}`
+      } else {
+        if (markIndex !== url.length - 1) {
+          strinfiedQuery += '&'
+        }
+
+        url = url.replace('?', `?${strinfiedQuery}`)
       }
-
-      url = url.replace('?', `?${strinfiedQuery}`)
     }
   }
 
@@ -39,7 +39,7 @@ export function fetch(rawURL, options) {
 
 export function fetchJSON(url, options) {
   return fetch(url, options)
-    .then(response => response.json())
+    .then(response => (response.json ? response.json() : response))
     .catch(response => {
       if (response.json) {
         return response.json().then(json => {

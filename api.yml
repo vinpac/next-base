@@ -1,0 +1,4 @@
+Routes:
+  User:
+    title: User
+    model: User

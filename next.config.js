@@ -22,6 +22,7 @@ module.exports = {
   webpack(config, { isServer, dev }) {
     Object.assign(config.resolve, {
       alias: Object.assign({}, config.resolve.alias, {
+        Ducks: resolve('data', 'ducks'),
         Core: resolve('server', 'core'),
         Lib: resolve('lib'),
         Components: resolve('components'),
@@ -40,6 +41,7 @@ module.exports = {
             hmr: !isServer && dev,
             // CSS Nano http://cssnano.co/options/
             minimize: !dev,
+            production: !dev,
           },
         },
         {

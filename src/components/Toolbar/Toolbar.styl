@@ -8,6 +8,8 @@
   right: 0
   z-index: 100
   box-shadow: 0 1px 1px rgba(#000, .15)
+  background: --colorPrimary
+  transition: background .5s
 
   :global .navbar
     min-height: 60px
@@ -19,3 +21,39 @@
 :global
   .next-toolbar
     padding-top: 60px
+
+.circleButton
+  width: 56px
+  height: 56px
+  border-radius: 50%
+  margin: 5px
+
+  &:hover
+    opacity .8
+
+:global
+  .btn-primary
+    color: #fff
+    background-color: --colorPrimary
+    border-color: --colorPrimary
+
+  .btn-primary:hover
+    color: #fff
+    background-color: --colorPrimaryHover
+    border-color: --colorPrimaryHover
+
+  .btn-primary:focus,
+  .btn-primary.focus
+    box-shadow: 0 0 0 3px --colorPrimaryShadow
+
+  .btn-primary.disabled,
+  .btn-primary:disabled
+    background-color: --colorPrimary
+    border-color: --colorPrimary
+
+  .btn-primary:active,
+  .btn-primary.active
+    color: #fff
+    background-color: --colorPrimaryActive
+    background-image: none
+    border-color: --colorPrimaryActive

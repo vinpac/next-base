@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import thunk from 'redux-thunk'
 import { dev } from 'Core/constants'
+import rootReducer from 'Ducks'
 import createLogger from './_logger'
-import rootReducer from './reducers'
 
 const configureStore = initialState => {
   const middleware = [thunk]

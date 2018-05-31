@@ -90,6 +90,7 @@ module.exports = {
               Core: resolve('server', 'core'),
               Lib: resolve('lib'),
               Server: resolve('server'),
+              Ducks: resolve('data', 'ducks'),
             },
           },
         },
