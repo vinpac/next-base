@@ -115,7 +115,7 @@ class Home extends React.Component {
                         <div className={`${s.avatar} mr-2`} />
                         <div className="media-body">
                           <div>
-                            <a href="/" className="tw-semibold ts-small">
+                            <a href="/" className="tw-medium ts-small">
                               John doe
                             </a>
                             <p className="mb-0 ts-small">
@@ -161,7 +161,7 @@ class Home extends React.Component {
                   />
                   <div className="media-body">
                     <a href="#" className="mb-1 ts-tiny tc-muted">
-                      <span className="tw-semibold">John doe</span> @johndoe
+                      <span className="tw-medium">John doe</span> @johndoe
                     </a>
                     <div className={`${s.bubble} mb-1 p-3`}>
                       <p className="mb-0">We would like to share a set of modules</p>
@@ -193,6 +193,25 @@ class Home extends React.Component {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="p-1 container container--sm">
+            <div className="card">
+              <div className="card-item p-3">
+                <h3 className="tw-normal">Custom Deployment Suffix</h3>
+                <p className="tc-muted">Lorem ipsum dolor iset</p>
+                <div className="input-group input-group--small">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text tc-muted">my-deployment.</span>
+                  </div>
+                  <input type="text" className="input input--size-small" />
+                </div>
+              </div>
+              <div className="card-item bg-grey p-3">
+                <p className="ts-small m-0 tc-muted">
+                  The domain <b>evilrabb.it</b> will be used as a suffix for all future deployment
+                </p>
               </div>
             </div>
           </div>
