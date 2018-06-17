@@ -9,21 +9,25 @@ const resolve = (...args) => path.resolve('./src', ...args)
 let staticDistDirname
 
 try {
-  staticDistDirname = fs.readFileSync(path.resolve('STATIC_DIRNAME'), 'utf8').trim()
+  staticDistDirname = fs.readFileSync(path.resolve('dist', 'static', 'meta.json'), 'utf8')
+  staticDistDirname = JSON.parse(staticDistDirname).value
 } catch (error) {
-  throw new Error("Missing STATIC_DIRNAME. Run 'npm run compile:css'")
+  throw new Error("Run 'npm run compile:css'. Missing dist/static/meta.json")
 }
 
 module.exports = {
   serverRuntimeConfig: {
     staticDistDirname,
   },
+  publicRuntimeConfig: {
+    apiURL: process.env.API_URL || 'http://localhost:8000',
+  },
   useFileSystemPublicRoutes: false,
   webpack(config, { isServer, dev }) {
     Object.assign(config.resolve, {
       alias: Object.assign({}, config.resolve.alias, {
-        Ducks: resolve('data', 'ducks'),
-        Core: resolve('server', 'core'),
+        Ducks: resolve('redux', 'ducks'),
+        Core: resolve('core'),
         Lib: resolve('lib'),
         Components: resolve('components'),
         Server: resolve('server'),

@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import thunk from 'redux-thunk'
 import { dev } from 'Core/constants'
-import rootReducer from 'Ducks'
-import createLogger from './_logger'
+import rootReducer from './root-reducer'
+import createLogger from './logger'
 
 const configureStore = initialState => {
   const middleware = [thunk]
@@ -19,7 +19,10 @@ const configureStore = initialState => {
       devToolsExtension = window.devToolsExtension()
     }
 
-    enhancer = compose(applyMiddleware(...middleware), devToolsExtension)
+    enhancer = compose(
+      applyMiddleware(...middleware),
+      devToolsExtension,
+    )
   } else {
     enhancer = applyMiddleware(...middleware)
   }

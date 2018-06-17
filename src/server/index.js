@@ -1,3 +1,4 @@
+import 'Server/core/setup'
 import express from 'express'
 import next from 'next'
 import path from 'path'
@@ -16,16 +17,18 @@ const runServer = () => {
   server.use(bodyParser.urlencoded({ extended: true }))
   server.use(bodyParser.json())
 
-  // Serve public
-  if (!dev) {
-    server.use(
-      '/_dist',
-      express.static(path.resolve('public/_dist'), {
-        maxage: 31536000000,
-        immutable: true,
-      }),
-    )
-  }
+  server.use(
+    '/_static-bundle',
+    express.static(
+      path.resolve('dist', 'static', 'out'),
+      dev
+        ? {}
+        : {
+            maxage: 31536000000,
+            immutable: true,
+          },
+    ),
+  )
   server.use(express.static(path.resolve('public')))
 
   if (useNext) {

@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { withStyles } from 'next-styled-css'
-import withRedux from 'Lib/redux'
+import withRedux from '../redux'
 
 class App extends NextApp {
   static async getInitialProps({ Component, ctx }) {

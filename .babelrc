@@ -1,12 +1,18 @@
 {
   "env": {
     "development": {
+      "plugins": [
+        ["wildcard", { "useCamelCase": true }]
+      ],
       "presets": [
         "next/babel",
         "@babel/preset-flow"
       ]
     },
     "production": {
+      "plugins": [
+        ["wildcard", { "useCamelCase": true }]
+      ],
       "presets": [
         "next/babel",
         "@babel/preset-flow"

@@ -7,7 +7,7 @@ import Toolbar from 'Components/Toolbar'
 import Preloader from 'Components/Preloader'
 import Link from 'next/link'
 import { connect } from 'react-redux'
-import { fetchPostsIfNeeded } from 'Ducks/posts/posts'
+import { fetchPostsIfNeeded } from 'Ducks/posts'
 import { hexToRgb, shade } from 'Lib/color'
 import s, { sheet } from './home.styl'
 

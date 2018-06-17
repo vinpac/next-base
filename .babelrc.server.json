@@ -4,11 +4,11 @@
     ["module-resolver", {
       "alias": {
         "Server": "./src/server",
-        "Ducks": "./src/ducks",
         "Lib": "./src/lib",
-        "Core": "./src/server/core"
+        "Core": "./src/core"
       }
-    }]
+    }],
+    ["wildcard", { "useCamelCase": true }]
   ],
   "presets": [
     [
@@ -20,7 +20,7 @@
         "debug": false
       }
     ],
-    "@babel/preset-stage-2",
+    ["@babel/preset-stage-2", { "decoratorsLegacy": true }],
     "@babel/preset-react",
     "@babel/preset-flow"
   ]

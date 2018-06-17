@@ -87,10 +87,10 @@ module.exports = {
             alias: {
               Components: resolve('components'),
               Styles: resolve('styles'),
-              Core: resolve('server', 'core'),
+              Core: resolve('core'),
               Lib: resolve('lib'),
               Server: resolve('server'),
-              Ducks: resolve('data', 'ducks'),
+              Ducks: resolve('redux', 'ducks'),
             },
           },
         },

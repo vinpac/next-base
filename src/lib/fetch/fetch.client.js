@@ -26,6 +26,12 @@ export function fetch(rawURL, options) {
         url = url.replace('?', `?${strinfiedQuery}`)
       }
     }
+
+    if (options.session) {
+      options.headers = options.headers || {}
+      options.headers['x-next-auth-token'] = options.session.id
+      options.headers['x-next-auth-secret'] = options.session.secret
+    }
   }
 
   return isoFetch(url, options).then(response => {

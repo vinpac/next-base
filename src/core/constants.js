@@ -1,4 +1,9 @@
-/* eslint-disable import/prefer-default-export */
+import getConfig from 'next/config'
+
+export const {
+  publicRuntimeConfig: { apiURL: API_URL },
+} = getConfig()
+
 export const dev = process.env.NODE_ENV !== 'production'
 export const meta = pageMeta => ({
   description: 'Basic app description',
